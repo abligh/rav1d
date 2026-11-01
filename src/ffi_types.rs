@@ -22,3 +22,26 @@ pub type off_t = libc::off_t;
 /// `wasm32-wasip1` has it.
 #[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
 pub type off_t = i64;
+
+/// The C `errno` values that [`crate::error::Rav1dError`] takes.
+pub mod errno {
+    #[cfg(not(all(target_arch = "wasm32", target_os = "unknown")))]
+    pub use libc::{EAGAIN, EINVAL, ENOENT, ENOMEM, ENOPROTOOPT, ERANGE};
+
+    // A target with no C library has no `errno`: these are WASI's
+    // values, which `libc` gives `wasm32-wasip1` and Emscripten, the
+    // other WebAssembly targets.
+    #[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
+    mod values {
+        use std::ffi::c_int;
+
+        pub const EAGAIN: c_int = 6;
+        pub const EINVAL: c_int = 28;
+        pub const ENOENT: c_int = 44;
+        pub const ENOMEM: c_int = 48;
+        pub const ENOPROTOOPT: c_int = 50;
+        pub const ERANGE: c_int = 68;
+    }
+    #[cfg(all(target_arch = "wasm32", target_os = "unknown"))]
+    pub use values::*;
+}
