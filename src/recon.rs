@@ -6,12 +6,12 @@ use std::ops::BitOr;
 use std::{array, cmp, ptr};
 
 use assert_matches::debug_assert_matches;
-use libc::intptr_t;
 use to_method::To as _;
 
 use crate::cdef_apply::rav1d_cdef_brow;
 use crate::ctx::CaseSet;
 use crate::env::get_uv_inter_txtp;
+use crate::ffi_types::intptr_t;
 use crate::in_range::InRange;
 use crate::include::common::bitdepth::{AsPrimitive, BitDepth, ToPrimitive, BPC};
 use crate::include::common::dump::{ac_dump, coef_dump, hex_dump, hex_dump_pic};

@@ -102,6 +102,7 @@ pub(crate) mod enum_map;
 mod env;
 pub(crate) mod error;
 mod ffi_safe;
+mod ffi_types;
 mod fg_apply;
 mod filmgrain;
 mod getbits;

@@ -2,7 +2,6 @@ use std::ffi::{c_int, c_uint};
 use std::sync::atomic::{AtomicI32, Ordering};
 use std::{array, cmp, iter, mem};
 
-use libc::ptrdiff_t;
 use strum::EnumCount;
 
 use crate::align::{Align16, AlignedVec64};
@@ -24,6 +23,7 @@ use crate::env::{
 };
 use crate::error::{Rav1dError, Rav1dResult};
 use crate::extensions::OptionError as _;
+use crate::ffi_types::ptrdiff_t;
 use crate::include::common::attributes::ctz;
 use crate::include::common::bitdepth::BPC;
 use crate::include::common::intops::{apply_sign64, clip, clip_u8, iclip};

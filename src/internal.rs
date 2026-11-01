@@ -6,7 +6,6 @@ use std::sync::{Arc, OnceLock};
 use std::thread::JoinHandle;
 
 use atomig::{Atom, Atomic};
-use libc::ptrdiff_t;
 use parking_lot::{Condvar, Mutex, RwLock, RwLockReadGuard};
 use strum::FromRepr;
 use zerocopy::{AsBytes, FromBytes, FromZeroes};
@@ -18,6 +17,7 @@ use crate::cpu::{rav1d_get_cpu_flags, CpuFlags};
 use crate::disjoint_mut::{DisjointImmutGuard, DisjointMut, DisjointMutArcSlice, DisjointMutGuard};
 use crate::env::BlockContext;
 use crate::error::Rav1dError;
+use crate::ffi_types::ptrdiff_t;
 use crate::filmgrain::{Rav1dFilmGrainDSPContext, GRAIN_HEIGHT, GRAIN_WIDTH};
 use crate::include::common::bitdepth::{BitDepth, BitDepth16, BitDepth8, BPC};
 use crate::include::dav1d::common::Rav1dDataProps;

@@ -3,13 +3,13 @@
 use std::ffi::{c_int, c_uint};
 use std::{cmp, slice};
 
-use libc::ptrdiff_t;
 use strum::FromRepr;
 use zerocopy::{AsBytes, FromBytes};
 
 use crate::cpu::CpuFlags;
 use crate::enum_map::{enum_map, enum_map_ty, DefaultValue};
 use crate::ffi_safe::FFISafe;
+use crate::ffi_types::ptrdiff_t;
 #[cfg(all(
     feature = "asm",
     not(any(target_arch = "riscv64", target_arch = "riscv32"))

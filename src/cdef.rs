@@ -4,12 +4,12 @@ use std::ffi::{c_int, c_uint};
 use std::{cmp, ptr};
 
 use bitflags::bitflags;
-use libc::ptrdiff_t;
 
 use crate::align::AlignedVec64;
 use crate::cpu::CpuFlags;
 use crate::disjoint_mut::DisjointMut;
 use crate::ffi_safe::FFISafe;
+use crate::ffi_types::ptrdiff_t;
 #[cfg(all(
     feature = "asm",
     not(any(target_arch = "riscv64", target_arch = "riscv32"))

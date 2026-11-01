@@ -6,7 +6,6 @@ use std::ptr::NonNull;
 use std::sync::Arc;
 use std::{array, mem};
 
-use libc::{ptrdiff_t, uintptr_t};
 use to_method::To as _;
 use zerocopy::{AsBytes, FromBytes, FromZeroes};
 
@@ -16,6 +15,7 @@ use crate::disjoint_mut::{
 };
 use crate::error::{Dav1dResult, Rav1dError, Rav1dResult};
 use crate::ffi_safe::FFISafe;
+use crate::ffi_types::{ptrdiff_t, uintptr_t};
 use crate::include::common::bitdepth::BitDepth;
 use crate::include::common::validate::validate_input;
 use crate::include::dav1d::common::{Dav1dDataProps, Rav1dDataProps};
